@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script
+            src="http://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to Chamber</p>
+<p>Room id : <%= room_id%></p>
+<div id = "content">
+    <div class="wrap">
+     <video autoplay></video>
+        <video autoplay></video>
+     <button>getUserMedia()</button>
+    </div>
+</div>
+
+</body>
+<script>
+    $(function(){//제이쿼리 도큐먼디 레디 : http://theqoop.tistory.com/295
+        navigator.getUserMedia = navigator.getUserMedia ||
+                navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        $('button').click(function () {
+            //위의 getUserMedia()버튼 클릭시
+            navigator.getUserMedia({audio:true, video:true}, success, error);
+
+        });
+        function success(stream) {
+            console.log('sucess', arguments);
+            $('video')[0].src = window.URL.createObjectURL(stream);
+        }
+        function error(error) {
+            console.log('error', arguments);
+
+            alert("키메라와 마이크를 허용해주세요");
+        }
+    });
+
+</script>
+</html>

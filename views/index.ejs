@@ -3,9 +3,33 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script
+            src="http://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to Chamber</p>
+
+
+    <form action="video" method="post" onsubmit="return onWriteSubmit()">
+      <input type="text" name="room_id" id="room_id" required/>
+      <button type="submit">Go to 1:1 Chamber</button>
+    </form>
+<!--
+    <a href="video">go to chamber</a> -->
+  <script>
+    function onWriteSubmit() {
+        if( $("#room_id").val().trim() == "") {
+            var msg = "방 이름을 입력해주세요";
+            $("#room_id").val("");
+            $("#room_id").focus();
+            alert(msg);
+            return false;
+        }
+    }
+  </script>
+
   </body>
 </html>

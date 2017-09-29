@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+#content{
+  padding: 80px 30px; min-height: 350px;
+  border-bottom: solid 1px #ebebeb;
+}
+
+.wrap { width: 360px; margin: 0 auto; }
+.wrap-250 { width: 250px; margin: 0 auto; }
+.wrap-340 { width: 340px; margin: 0 auto; }
+.two-peace div { float: left; width: 48%; }
+.two-peace div:first-child { margin-right: 15px; }
+.two-peace:after { display: block; content: ""; clear: both; }
+
+video { margin: 0 0 20px 0; width: 100%; background: #222; }
